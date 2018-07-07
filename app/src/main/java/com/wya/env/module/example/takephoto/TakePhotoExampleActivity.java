@@ -24,6 +24,7 @@ public class TakePhotoExampleActivity extends BaseActivity {
     private static final int TAKE_PHOTO = 1; // 拍照
     int type = 0;
 
+
     @Override
     protected void initView() {
         avatar = (ImageView) findViewById(R.id.avatar);
