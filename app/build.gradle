@@ -68,10 +68,6 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //RecyclerView
     implementation 'com.android.support:recyclerview-v7:26.1.0'
-
-
-
-
     /**********************--------example------------------**********************/
     //TokePhotoExample 包含单选图片的选择和拍照，是否裁剪
     implementation 'com.github.githubmcj:choosephoto:v1.0.1'

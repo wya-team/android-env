@@ -16,22 +16,16 @@ import android.widget.TextView;
 import com.photo.util.choosephotoutil.DialogPhotoForCutActivity;
 import com.photo.util.choosephotoutil.DialogPhotoForNoCutActivity;
 import com.wya.env.R;
+import com.wya.env.base.BaseActivity;
 
-public class TakePhotoExampleActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.toke_photo_example_activity);
-        initView();
-    }
-
-
+public class TakePhotoExampleActivity extends BaseActivity {
     private ImageView avatar, avatar_no_cut;
     private TextView tv_path;
     private static final int TAKE_PHOTO = 1; // 拍照
     int type = 0;
-    private void initView() {
+
+    @Override
+    protected void initView() {
         avatar = (ImageView) findViewById(R.id.avatar);
         avatar_no_cut = (ImageView) findViewById(R.id.avatar_no_cut);
         tv_path = (TextView) findViewById(R.id.tv_path);
@@ -50,13 +44,20 @@ public class TakePhotoExampleActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected int getLayoutID() {
+        return R.layout.toke_photo_example_activity;
+    }
+
 
     private static String[] PERMISSIONS_STORAGE = {
             "android.permission.READ_EXTERNAL_STORAGE",
             "android.permission.WRITE_EXTERNAL_STORAGE"};
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
+
     /**
      * 获取文件访问权限，6.0以上需要添加
+     *
      * @param activity
      */
     public void verifyStoragePermissions(Activity activity) {

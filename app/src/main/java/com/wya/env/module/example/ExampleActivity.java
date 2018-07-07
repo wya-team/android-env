@@ -7,24 +7,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.wya.env.R;
+import com.wya.env.base.BaseActivity;
 import com.wya.env.module.example.takephoto.TakePhotoExampleActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ExampleActivity extends AppCompatActivity {
+public class ExampleActivity extends BaseActivity {
 
     @BindView(R.id.tv_take_photo)
     TextView tvTakePhoto;
-
     private Context context;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.example_activity);
-        ButterKnife.bind(this);
+    protected void initView() {
         context = this;
         initClick();
+    }
+
+    @Override
+    protected int getLayoutID() {
+        return R.layout.example_activity;
     }
 
     private void initClick() {
