@@ -2,7 +2,6 @@ package com.wya.env.module.example;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.TextView;
 
 import com.wya.env.R;
@@ -11,7 +10,6 @@ import com.wya.env.module.example.takephoto.TakePhotoExampleActivity;
 import com.wya.env.module.example.view.ViewsActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class ExampleActivity extends BaseActivity {
 

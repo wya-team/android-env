@@ -8,8 +8,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +15,12 @@ import com.photo.util.choosephotoutil.DialogPhotoForCutActivity;
 import com.photo.util.choosephotoutil.DialogPhotoForNoCutActivity;
 import com.wya.env.R;
 import com.wya.env.base.BaseActivity;
+ /**
+  * 创建日期：2018/8/9 14:14
+  * 作者： Mao Chunjiang
+  * 文件名称：TakePhotoExampleActivity
+  * 类说明：插入单张图片
+  */
 
 public class TakePhotoExampleActivity extends BaseActivity {
     private ImageView avatar, avatar_no_cut;
