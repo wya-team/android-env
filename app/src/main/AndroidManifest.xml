@@ -21,10 +21,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.login.LoginActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".module.example.ExampleActivity" />
-        <activity android:name=".module.example.takephoto.TakePhotoExampleActivity"></activity>
+        <activity
+            android:name=".module.login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.example.ExampleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.example.takephoto.TakePhotoExampleActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".module.example.view.ViewsActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

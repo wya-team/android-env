@@ -71,4 +71,6 @@ dependencies {
     /**********************--------example------------------**********************/
     //TokePhotoExample 包含单选图片的选择和拍照，是否裁剪
     implementation 'com.github.githubmcj:choosephoto:v1.0.1'
+
+    implementation 'com.github.githubmcj:myview:v1.0.2'
 }

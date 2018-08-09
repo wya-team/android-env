@@ -27,7 +27,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
         StatusUtil.setStatusBarColor(this, android.R.color.white);
         StatusUtil.setStatue(this, true);
         unbinder = ButterKnife.bind(this);
-        loadingDialog = new LoadingDialog(this);
+        loadingDialog = new LoadingDialog(this,true);
         initView();
     }
 
