@@ -2,17 +2,26 @@ package com.wya.env;
 
 import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
+
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-
 import com.wya.env.util.DynamicTimeFormatUtil;
 
-
 /**
- * Created by Administrator on 2018/6/29 0029.
+ * 创建日期：2019/1/3 16:19
+ * 作者： Mao Chunjiang
+ * 文件名称：App
+ * 类说明：App
  */
 
 public class App extends Application {
+
+    private static App INSTANCE;
+
+    public static App getInstance() {
+        return INSTANCE;
+    }
+
     static {
         //初始化刷新头部
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);//启用矢量图兼容

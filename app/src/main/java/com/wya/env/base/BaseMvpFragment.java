@@ -4,11 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.wya.env.MainActivity;
-import com.wya.env.util.ToastUtils;
 
-/**
- * Created by Administrator on 2018/7/3 0003.
- */
 
 public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFragment implements BaseView {
     /**
@@ -23,7 +19,7 @@ public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFra
      * 隐藏加载对话框
      */
     @Override
-    public void hideLodoing() {
+    public void hideLoading() {
 
     }
 
@@ -34,8 +30,7 @@ public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFra
      */
     @Override
     public void failedResult(String s) {
-        ToastUtils.showToast(getActivity(), s);
-
+        getWyaToast().showShort(s);
     }
 
     /**

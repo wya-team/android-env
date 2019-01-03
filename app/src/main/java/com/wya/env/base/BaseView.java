@@ -11,7 +11,7 @@ public interface BaseView {
     //显示加载框
     void showLoading();
     //隐藏加载框
-    void hideLodoing();
+    void hideLoading();
     //请求失败
     void failedResult(String s);
     //token失效

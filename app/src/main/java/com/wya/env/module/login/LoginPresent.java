@@ -11,7 +11,7 @@ import com.wya.env.net.BaseExt;
 import com.wya.env.net.BaseSubscriber;
 import com.wya.env.net.api.ResultApi;
 import com.wya.env.util.ResultStatusUtil;
-import com.wya.env.util.ToastUtils;
+import com.wya.uikit.toast.WYAToast;
 
 
 /**
@@ -39,11 +39,11 @@ public class LoginPresent extends BasePresent<LoginView> {
 
     public boolean checkInfo(String username,String password,Activity activity){
         if (TextUtils.isEmpty(username) || "".equals(username) || username == null) {
-            ToastUtils.showToast(activity, "请输入用户名");
+            new WYAToast(activity).showShort( "请输入用户名");
             return false;
         }
         if (TextUtils.isEmpty(password) || "".equals(password) || password == null) {
-            ToastUtils.showToast(activity, "请输入密码");
+            new WYAToast(activity).showShort( "请输入密码");
             return false;
         }
 

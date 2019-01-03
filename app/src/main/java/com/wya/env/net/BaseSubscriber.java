@@ -12,31 +12,29 @@ import com.wya.env.base.BaseView;
 
 public class BaseSubscriber<T> implements Observer<T> {
     private BaseView mBaseView;
+    private Disposable disposable;
     public BaseSubscriber(BaseView baseView) {
         this.mBaseView=baseView;
     }
 
     @Override
     public void onSubscribe(Disposable d) {
-        BaseActivity.mDisposables.add(d);
-
+        disposable = d;
     }
 
     @Override
     public void onNext(T t) {
-        mBaseView.hideLodoing();
+        mBaseView.hideLoading();
     }
 
     @Override
     public void onError(Throwable e) {
-        mBaseView.hideLodoing();
+        mBaseView.hideLoading();
         mBaseView.failedResult(e.getMessage());
-
     }
 
     @Override
     public void onComplete() {
-        mBaseView.hideLodoing();
-
+        mBaseView.hideLoading();
     }
 }

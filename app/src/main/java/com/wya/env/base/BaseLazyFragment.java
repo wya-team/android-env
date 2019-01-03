@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wya.uikit.toast.WYAToast;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -41,6 +43,10 @@ public abstract class BaseLazyFragment extends Fragment {
     //初始化view
     protected abstract void initView();
 
+
+    public WYAToast getWyaToast() {
+        return new WYAToast(getActivity());
+    }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {

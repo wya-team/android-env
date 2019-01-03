@@ -11,18 +11,18 @@ import com.wya.env.base.BaseView;
  */
 
 public class ResultStatusUtil {
-    public static boolean resultStatus(BaseView mView, int status, String msg){
-        if (status==1){
-           return true;
+    public static boolean resultStatus(BaseView mView, int status, String msg) {
+        if (status == 1) {
+            return true;
         }
-        if (status==0){
+        if (status == 0) {
             mView.failedResult(msg);
             return false;
         }
-        if (status==-1){
-            mView.tokenFaile((Activity)mView);
+        if (status == -1) {
+            mView.tokenFaile((Activity) mView);
             return false;
         }
-      return false;
+        return false;
     }
 }

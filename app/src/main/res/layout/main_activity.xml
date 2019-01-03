@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:background="@color/f4f4f4"
+    android:orientation="vertical">
 
-
-    <com.wya.views.bottomtabbar.BottomTabBar
-        android:id="@+id/bottom_tab_bar"
+    <FrameLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </com.wya.views.bottomtabbar.BottomTabBar>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </FrameLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <com.wya.uikit.tabbar.WYATabBar
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@null"
+        app:itemIconTint="@drawable/navigation_select"
+        app:itemTextColor="@drawable/navigation_select"
+        app:menu="@menu/navigation" />
+
+</LinearLayout>

@@ -1,44 +1,65 @@
 package com.wya.env;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
-import android.view.View;
-
-
-import com.wya.views.bottomtabbar.BottomTabBar;
-
-import butterknife.BindView;
 
 import com.wya.env.base.BaseActivity;
 import com.wya.env.module.home.fragment.Fragment1;
 import com.wya.env.module.mine.Fragment2;
-import com.wya.env.util.ToastUtils;
+import com.wya.uikit.tabbar.WYATabBar;
+
+import butterknife.BindView;
 
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.bottom_tab_bar)
-    BottomTabBar bottomTabBar;
+
+    @BindView(R.id.tab)
+    WYATabBar tab;
+
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+    private Fragment1 fragment1;
+    private Fragment2 fragment2;
+
 
     @Override
     protected void initView() {
-        getSwipeBackLayout().setEnableGesture(false);
-        bottomTabBar.init(getSupportFragmentManager())
-                .setImgSize(60, 60)//设置图片尺寸
-                .setFontSize(12)//设置字体尺寸
-                .setTabPadding(10, 6, 10)
-                .setChangeColor(Color.BLUE, Color.GRAY)//设置选中和未选中的颜色
-                .addTabItem("首页", R.mipmap.mystudy_select, R.mipmap.mystudy_normal, Fragment1.class)
-                .addTabItem("我的", R.mipmap.my_select, R.mipmap.my_normal, Fragment2.class)
-                .isShowDivider(true)
-                .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
-                    @Override
-                    public void onTabChange(int position, String name, View view) {
+        initFragment();
+        setToolBar();
+    }
 
-                    }
-                });
+    private void initFragment() {
+        fragment1 = new Fragment1();
+        fragment2 = new Fragment2();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.content, fragment1);
+        fragmentTransaction.add(R.id.content, fragment2);
+        fragmentTransaction.show(fragment1).hide(fragment2).commit();
+    }
+
+    private void setToolBar() {
+        //取消偏移
+        tab.disableShiftMode();
+        //取消item动画
+        tab.enableAnimation(false);
+        //item点击监听
+        tab.setOnNavigationItemSelectedListener(item -> {
+            fragmentTransaction = fragmentManager.beginTransaction();
+            switch (item.getItemId()) {
+                case R.id.navigation_my:
+                    fragmentTransaction.show(fragment2).hide(fragment1).commit();
+                    break;
+                case R.id.navigation_my_study:
+                    fragmentTransaction.show(fragment1).hide(fragment2).commit();
+                    break;
+            }
+            return true;
+        });
     }
 
     @Override
@@ -63,7 +84,7 @@ public class MainActivity extends BaseActivity {
     private void exit() {
         if (!isExit) {
             isExit = true;
-            ToastUtils.showToast(this, "再按一次退出程序");
+            getWyaToast().showShort("再按一次退出程序");
             handler.sendEmptyMessageDelayed(0, 2000);
         } else {
             this.finish();

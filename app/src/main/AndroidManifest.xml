@@ -27,15 +27,6 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".module.example.ExampleActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".module.example.takephoto.TakePhotoExampleActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".module.example.view.ViewsActivity"
-            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">微一案安卓项目模板</string>
+
+    <string name="title_my_study">我的学习</string>
+    <string name="title_my">我的</string>
+
 </resources>

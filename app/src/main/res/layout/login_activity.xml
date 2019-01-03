@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/f4f4f4"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,18 +36,19 @@
                     android:layout_margin="10dp"
                     android:src="@mipmap/username" />
 
-            <!--    <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">-->
-
-                    <EditText
-                        android:id="@+id/username"
+                <!--    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@null"
-                        android:hint="用户名"
-                        android:inputType="textEmailAddress"
-                        android:textColorHint="#ffffff" />
+                        android:layout_height="wrap_content">-->
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="用户名"
+                    android:inputType="textEmailAddress"
+                    android:text="admin"
+                    android:textColorHint="#ffffff" />
                 <!--</ScrollView>-->
 
             </LinearLayout>
@@ -76,6 +79,7 @@
                     android:background="@null"
                     android:hint="密码"
                     android:inputType="textPassword"
+                    android:text="admin"
                     android:textColorHint="#ffffff" />
 
             </LinearLayout>

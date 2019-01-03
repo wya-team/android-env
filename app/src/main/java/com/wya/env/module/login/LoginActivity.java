@@ -11,14 +11,18 @@ import com.wya.env.base.BaseMvpActivity;
 import com.wya.env.bean.login.LoginInfo;
 import com.wya.env.common.CommonValue;
 import com.wya.env.util.SaveSharedPreferences;
+import com.wya.utils.utils.ColorUtil;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 
-/**
- * Created by Administrator on 2018/7/3 0003.
- */
+ /**
+  * 创建日期：2019/1/3 15:35
+  * 作者： Mao Chunjiang
+  * 文件名称：LoginActivity
+  * 类说明：登录
+  */
 
 public class LoginActivity extends BaseMvpActivity<LoginPresent> implements LoginView {
 
@@ -32,7 +36,8 @@ public class LoginActivity extends BaseMvpActivity<LoginPresent> implements Logi
 
     @Override
     protected void initView() {
-        getSwipeBackLayout().setEnableGesture(false);
+        initShowToolBar(false);
+        initToolBarBgColor(ColorUtil.hex2Int("#ffffff"), true);
         loginPresent.mView = this;
         RxView.clicks(butLogin)
                 .throttleFirst(500, TimeUnit.MILLISECONDS)
