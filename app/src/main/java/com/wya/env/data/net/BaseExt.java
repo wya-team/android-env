@@ -1,4 +1,4 @@
-package com.wya.env.net;
+package com.wya.env.data.net;
 
 
 import io.reactivex.Observable;

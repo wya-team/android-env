@@ -1,0 +1,100 @@
+ext {
+
+    // build config
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    compileSdkVersion = 26
+    buildToolsVersion = "27.0.3"
+    minSdkVersion = 15
+    targetSdkVersion = 26
+
+    // support config
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    SupportLibVersion = "26.1.0"
+    annotationVersion = "27.1.0"
+    multidexVersion = "1.0.1"
+    constraintLayoutVersion = "1.1.3"
+
+    supportDepends = [
+            design           : "com.android.support:design:${SupportLibVersion}",
+            support_v4       : "com.android.support:support-v4:${SupportLibVersion}",
+            appcompat_v7     : "com.android.support:appcompat-v7:${SupportLibVersion}",
+            recyclerview_v7  : "com.android.support:recyclerview-v7:${SupportLibVersion}",
+            cardview_v7      : "com.android.support:cardview-v7:${SupportLibVersion}",
+
+            annotations      : "com.android.support:support-annotations:${annotationVersion}",
+            multidex         : "com.android.support:multidex:${multidexVersion}",
+            constraint_layout: "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+    ]
+
+    // config
+    // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    rxjavaVersion = "2.1.3"
+    retrofitVersion = "2.3.0"
+    converterGsonVersion = "2.3.0"
+    adapterRxjava2Version = "2.3.0"
+    rxandroidVersion = "2.0.1"
+
+    okhttpVersion = "3.9.0"
+    loggingInterceptorVersion = "3.9.0"
+    converterScalarsVersion = "2.3.0"
+    rxbindingVersion = "2.0.0"
+    butterknifeVersion = "8.5.1"
+
+    glideVersion = "3.7.0"
+    compilerVersion = "4.8.0"
+    smartRefreshLayoutVersion = "1.1.0-alpha-7"
+    baseRecyclerViewAdapterHelperVersion = "2.9.30"
+    jpushVersion = "3.1.8"
+
+    jcoreVersion = "1.2.6"
+    loggerVersion = "2.2.0"
+    javaWebSocketVersion = "1.3.9"
+    greendaoVersion = "3.2.2"
+    eventbusVersion = "3.0.0"
+
+    crashreportUpgradeVersion = "1.3.6"
+    nativecrashreportVersion = "3.3.1"
+    tinkerAndroidLibVersion = "1.9.9"
+    shimmerlayoutVersion = "2.1.0"
+    myviewVersion = "v1.0.2"
+
+    choosephotoVersion = "v1.0.1"
+
+    depends = [
+
+            rxjava                       : "io.reactivex.rxjava2:rxjava:${rxjavaVersion}",
+            rxandroid                    : "io.reactivex.rxjava2:rxandroid:${rxandroidVersion}",
+            adapter_rxjava2              : "com.squareup.retrofit2:adapter-rxjava2:${adapterRxjava2Version}",
+            retrofit                     : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            converter_gson               : "com.squareup.retrofit2:converter-gson:${converterGsonVersion}",
+
+            okhttp                       : "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            logging_interceptor          : "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorVersion}",
+            converter_scalars            : "com.squareup.retrofit2:converter-scalars:${converterScalarsVersion}",
+            rxbinding                    : "com.jakewharton.rxbinding2:rxbinding:${rxbindingVersion}",
+            butterknife                  : "com.jakewharton:butterknife:${butterknifeVersion}",
+
+            butterknife_compiler         : "com.jakewharton:butterknife-compiler:${butterknifeVersion}",
+            glide                        : "com.github.bumptech.glide:glide:${glideVersion}",
+            compiler                     : "com.github.bumptech.glide:compiler:${compilerVersion}",
+            smartRefreshLayout           : "com.scwang.smartrefresh:SmartRefreshLayout:${smartRefreshLayoutVersion}",
+            baseRecyclerViewAdapterHelper: "com.github.CymChad:BaseRecyclerViewAdapterHelper:${baseRecyclerViewAdapterHelperVersion}",
+
+            jpush                        : "cn.jiguang.sdk:jpush:${jpushVersion}",
+            jcore                        : "cn.jiguang.sdk:jcore:${jcoreVersion}",
+            logger                       : "com.orhanobut:logger:${loggerVersion}",
+            java_WebSocket               : "org.java-websocket:Java-WebSocket:${javaWebSocketVersion}",
+            greendao                     : "org.greenrobot:greendao:${greendaoVersion}",
+
+            eventbus                     : "org.greenrobot:eventbus:${eventbusVersion}",
+            crashreport_upgrade          : "com.tencent.bugly:crashreport_upgrade:${crashreportUpgradeVersion}",
+            nativecrashreport            : "com.tencent.bugly:nativecrashreport:${nativecrashreportVersion}",
+            tinker_android_lib           : "com.tencent.tinker:tinker-android-lib:${tinkerAndroidLibVersion}",
+            shimmerlayout                : "io.supercharge:shimmerlayout:${shimmerlayoutVersion}",
+
+            myview                       : "com.github.githubmcj:myview:${myviewVersion}",
+            choosephoto                  : "com.github.githubmcj:choosephoto:${choosephotoVersion}",
+
+    ]
+
+}

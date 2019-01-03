@@ -1,9 +1,10 @@
-package com.wya.env.net;
+package com.wya.env.data.net;
+
+import com.wya.env.base.BaseActivity;
+import com.wya.env.base.BaseView;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import com.wya.env.base.BaseActivity;
-import com.wya.env.base.BaseView;
 
 /**
  * Created by Administrator on 2018/5/31 0031.
