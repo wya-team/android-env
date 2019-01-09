@@ -4,14 +4,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.wya.env.R;
+import com.wya.env.base.BaseMvpFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 
-import com.wya.env.R;
-import com.wya.env.base.BaseMvpFragment;
 /**
  * @date: 2018/7/3 13:55
  * @author: Chunjiang Mao

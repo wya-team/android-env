@@ -6,6 +6,7 @@ import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 
 import com.wya.env.base.BaseActivity;
 import com.wya.env.module.home.fragment.Fragment1;
@@ -13,6 +14,7 @@ import com.wya.env.module.mine.Fragment2;
 import com.wya.uikit.tabbar.WYATabBar;
 
 import butterknife.BindView;
+
 /**
  * @date: 2019/1/9 14:04
  * @author: Chunjiang Mao
@@ -52,7 +54,7 @@ public class MainActivity extends BaseActivity {
         //取消item动画
         tab.enableAnimation(false);
         //item点击监听
-        tab.setOnNavigationItemSelectedListener(item -> {
+        tab.setOnNavigationItemSelectedListener((MenuItem item) -> {
             fragmentTransaction = fragmentManager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_my:
