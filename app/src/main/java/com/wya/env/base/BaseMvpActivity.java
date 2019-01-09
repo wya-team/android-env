@@ -5,9 +5,15 @@ import android.content.Intent;
 
 import com.wya.env.MainActivity;
 
+/**
+ * @date: 2018/7/3 13:48
+ * @author: Chunjiang Mao
+ * @classname: BaseMvpActivity
+ * @describe: BaseMvpActivity
+ */
 
 public abstract class BaseMvpActivity<T extends BasePresent> extends BaseActivity implements BaseView {
-
+    
     /**
      * 显示加载对话框
      */
@@ -15,7 +21,7 @@ public abstract class BaseMvpActivity<T extends BasePresent> extends BaseActivit
     public void showLoading() {
         loadingDialog.show();
     }
-
+    
     /**
      * 隐藏加载对话框
      */
@@ -23,7 +29,7 @@ public abstract class BaseMvpActivity<T extends BasePresent> extends BaseActivit
     public void hideLoading() {
         loadingDialog.dismiss();
     }
-
+    
     /**
      * 失败回调
      *
@@ -33,7 +39,7 @@ public abstract class BaseMvpActivity<T extends BasePresent> extends BaseActivit
     public void failedResult(String s) {
         getWyaToast().showShort(s);
     }
-
+    
     /**
      * token失效
      */

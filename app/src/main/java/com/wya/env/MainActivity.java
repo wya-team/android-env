@@ -13,25 +13,29 @@ import com.wya.env.module.mine.Fragment2;
 import com.wya.uikit.tabbar.WYATabBar;
 
 import butterknife.BindView;
+/**
+ * @date: 2019/1/9 14:04
+ * @author: Chunjiang Mao
+ * @classname: MainActivity
+ * @describe: MainActivity
+ */
 
 public class MainActivity extends BaseActivity {
-
-
+    
     @BindView(R.id.tab)
     WYATabBar tab;
-
+    
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private Fragment1 fragment1;
     private Fragment2 fragment2;
-
-
+    
     @Override
     protected void initView() {
         initFragment();
         setToolBar();
     }
-
+    
     private void initFragment() {
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
@@ -41,7 +45,7 @@ public class MainActivity extends BaseActivity {
         fragmentTransaction.add(R.id.content, fragment2);
         fragmentTransaction.show(fragment1).hide(fragment2).commit();
     }
-
+    
     private void setToolBar() {
         //取消偏移
         tab.disableShiftMode();
@@ -57,16 +61,18 @@ public class MainActivity extends BaseActivity {
                 case R.id.navigation_my_study:
                     fragmentTransaction.show(fragment1).hide(fragment2).commit();
                     break;
+                default:
+                    break;
             }
             return true;
         });
     }
-
+    
     @Override
     protected int getLayoutID() {
         return R.layout.main_activity;
     }
-
+    
     /**
      * 双击返回键退出app
      */
@@ -78,9 +84,9 @@ public class MainActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
+    
     private static boolean isExit = false;
-
+    
     private void exit() {
         if (!isExit) {
             isExit = true;
@@ -90,15 +96,15 @@ public class MainActivity extends BaseActivity {
             this.finish();
         }
     }
-
+    
     @SuppressLint("HandlerLeak")
     private static Handler handler = new Handler() {
-
+        
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             isExit = false;
         }
     };
-
+    
 }

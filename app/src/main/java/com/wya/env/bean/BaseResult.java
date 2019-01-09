@@ -1,7 +1,10 @@
 package com.wya.env.bean;
 
 /**
- * Created by Administrator on 2018/7/3 0003.
+ * @date: 2018/7/3 13:50
+ * @author: Chunjiang Mao
+ * @classname: BaseResult
+ * @describe:
  */
 
 public class BaseResult<T> {

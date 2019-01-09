@@ -10,19 +10,21 @@ import java.util.List;
 import com.wya.env.R;
 
 /**
- * Created by Administrator on 2018/6/29 0029.
+ * @date: 2018/6/29 13:55
+ * @author: Chunjiang Mao
+ * @classname: DataAdapter
+ * @describe:
  */
 
 public class DataAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
-
+    
     public DataAdapter(int layoutResId, @Nullable List<String> data) {
         super(layoutResId, data);
     }
-
+    
     @Override
     protected void convert(BaseViewHolder helper, String item) {
         helper.setText(R.id.text, item);
     }
-
-
+    
 }

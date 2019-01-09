@@ -5,6 +5,12 @@ import android.content.Intent;
 
 import com.wya.env.MainActivity;
 
+/**
+ * @date: 2018/7/3 13:48
+ * @author: Chunjiang Mao
+ * @classname: BaseMvpFragment
+ * @describe: BaseMvpFragment
+ */
 
 public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFragment implements BaseView {
     /**
@@ -12,17 +18,17 @@ public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFra
      */
     @Override
     public void showLoading() {
-
+    
     }
-
+    
     /**
      * 隐藏加载对话框
      */
     @Override
     public void hideLoading() {
-
+    
     }
-
+    
     /**
      * 失败回调
      *
@@ -32,7 +38,7 @@ public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFra
     public void failedResult(String s) {
         getWyaToast().showShort(s);
     }
-
+    
     /**
      * token失效
      */
@@ -41,7 +47,7 @@ public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFra
         //跳转到登陆界面
         startActivity(new Intent(activity, MainActivity.class));
         activity.finish();
-
+        
     }
-
+    
 }

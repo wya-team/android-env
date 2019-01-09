@@ -1,8 +1,10 @@
 package com.wya.env.base;
 
 /**
- * Created by Administrator on 2018/7/3 0003.
- * 基类P层
+ * @date: 2018/7/3 13:49
+ * @author: Chunjiang Mao
+ * @classname: BasePresent
+ * @describe: 基类P层
  */
 
 public class BasePresent<T extends BaseView> {
