@@ -6,12 +6,13 @@ import android.view.MotionEvent;
 
 import com.wya.env.App;
 import com.wya.utils.utils.ScreenUtil;
- /**
-  * @author: Caiqi Zen
-  * @classname: GestureFlingRightHelper
-  * @describe:
-  */
- 
+
+/**
+ * @author: Caiqi Zen
+ * @classname: GestureFlingRightHelper
+ * @describe:
+ */
+
 public class GestureFlingRightHelper implements GestureDetector.OnGestureListener {
     private int minDistance = 180;
     private GestureRightCallBack mGestureCallBack = null;
@@ -32,10 +33,10 @@ public class GestureFlingRightHelper implements GestureDetector.OnGestureListene
     }
     
     public GestureDetector getGestureDetector(Context context, GestureRightCallBack callBack, int widthPixels) {
-        this.minDistance = widthPixels / 3;
-        this.mGestureCallBack = callBack;
-        if (this.mGestureCallBack == null) {
-            this.mGestureCallBack = new GestureRightCallBack() {
+        minDistance = widthPixels / 3;
+        mGestureCallBack = callBack;
+        if (mGestureCallBack == null) {
+            mGestureCallBack = new GestureRightCallBack() {
                 @Override
                 public boolean handleFlingRightAction() {
                     return false;
@@ -57,8 +58,8 @@ public class GestureFlingRightHelper implements GestureDetector.OnGestureListene
         if (e1 != null && e2 != null) {
             float xFling = e2.getX() - e1.getX();
             float yFling = e2.getY() - e1.getY();
-            if (e1.getX() < (float) (ScreenUtil.getScreenWidth(App.getInstance()) / 5) && xFling > (float) this.minDistance && Math.abs(yFling) < xFling / 2.0F) {
-                result = this.mGestureCallBack.handleFlingRightAction();
+            if (e1.getX() < (float) (ScreenUtil.getScreenWidth(App.getInstance()) / 5) && xFling > (float) minDistance && Math.abs(yFling) < xFling / 2.0F) {
+                result = mGestureCallBack.handleFlingRightAction();
             }
         }
         
@@ -86,6 +87,7 @@ public class GestureFlingRightHelper implements GestureDetector.OnGestureListene
     public interface GestureRightCallBack {
         /**
          * handleFlingRightAction
+         *
          * @return
          */
         boolean handleFlingRightAction();

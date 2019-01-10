@@ -90,7 +90,7 @@ public abstract class BaseLazyFragment extends Fragment {
      * 在该回调方法中你可以做一些加载数据操作，甚至是控件的操作.
      *
      * @param isVisible true  不可见 -> 可见
-     * false 可见  -> 不可见
+     *                  false 可见  -> 不可见
      */
     public void onFragmentVisibleChange(boolean isVisible) {
     

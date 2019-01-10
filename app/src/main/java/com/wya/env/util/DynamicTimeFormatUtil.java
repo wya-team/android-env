@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
 /**
  * @date: 2017/6/17 13:59
  * @author: Chunjiang Mao
@@ -28,7 +29,7 @@ public class DynamicTimeFormatUtil extends SimpleDateFormat {
     
     public DynamicTimeFormatUtil(String format) {
         this();
-        this.mFormat = format;
+        mFormat = format;
     }
     
     public DynamicTimeFormatUtil(String yearFormat, String dateFormat, String timeFormat) {
@@ -37,7 +38,7 @@ public class DynamicTimeFormatUtil extends SimpleDateFormat {
     
     public DynamicTimeFormatUtil(String format, String yearFormat, String dateFormat, String timeFormat) {
         this(yearFormat, dateFormat, timeFormat);
-        this.mFormat = format;
+        mFormat = format;
     }
     
     @Override

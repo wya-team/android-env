@@ -17,8 +17,8 @@ public class SaveSharedPreferences {
      * 保存信息
      *
      * @param context 上下文
-     * @param key 键
-     * @param value 值
+     * @param key     键
+     * @param value   值
      */
     public static void save(Context context, String key, Object value) {
         SharedPreferences sp = context.getSharedPreferences(CommonValue.SHARE_PREFERENCES_NAME, 0);
@@ -38,8 +38,7 @@ public class SaveSharedPreferences {
      * 从sharedpreferences获取数据
      *
      * @param context 上下文
-     * @param key 键
-     *
+     * @param key     键
      * @return 返回值
      */
     public static String getString(Context context, String key) {

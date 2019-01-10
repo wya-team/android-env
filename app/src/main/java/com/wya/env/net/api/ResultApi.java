@@ -1,12 +1,13 @@
 package com.wya.env.net.api;
 
+import com.wya.env.bean.BaseResult;
+import com.wya.env.bean.login.LoginInfo;
+import com.wya.env.net.RetrofitFactory;
+
 import java.util.HashMap;
 
 import io.reactivex.Observable;
 
-import com.wya.env.bean.BaseResult;
-import com.wya.env.bean.login.LoginInfo;
-import com.wya.env.net.RetrofitFactory;
 /**
  * @date: 2018/7/3 13:58
  * @author: Chunjiang Mao
@@ -20,7 +21,6 @@ public class ResultApi {
      *
      * @param userName
      * @param pwd
-     *
      * @return
      */
     public Observable<BaseResult<LoginInfo>> loginApi(String userName, String pwd) {
