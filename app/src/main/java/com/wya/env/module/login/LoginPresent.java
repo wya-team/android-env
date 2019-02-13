@@ -45,11 +45,11 @@ public class LoginPresent extends BasePresent<LoginView> {
     
     public boolean checkInfo(String username, String password, Activity activity) {
         if (TextUtils.isEmpty(username) || "".equals(username) || username == null) {
-            new WYAToast(activity).showShort("请输入用户名");
+            WYAToast.showShort(activity, "请输入用户名");
             return false;
         }
         if (TextUtils.isEmpty(password) || "".equals(password) || password == null) {
-            new WYAToast(activity).showShort("请输入密码");
+            WYAToast.showShort(activity, "请输入密码");
             return false;
         }
         

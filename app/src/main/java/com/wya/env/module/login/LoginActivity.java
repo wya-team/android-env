@@ -36,8 +36,8 @@ public class LoginActivity extends BaseMvpActivity<LoginPresent> implements Logi
     
     @Override
     protected void initView() {
-        initShowToolBar(false);
-        initToolBarBgColor(ColorUtil.hex2Int("#ffffff"), true);
+        showToolBar(false);
+        setBackgroundColor(ColorUtil.hex2Int("#ffffff"), true);
         loginPresent.mView = this;
         RxView.clicks(butLogin)
                 .throttleFirst(500, TimeUnit.MILLISECONDS)
@@ -73,7 +73,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresent> implements Logi
     }
     
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return R.layout.login_activity;
     }
     

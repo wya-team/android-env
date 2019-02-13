@@ -69,7 +69,7 @@ public class Fragment1 extends BaseMvpFragment<Fragment1Presenter> implements Fr
         //加载监听
         smartRefreshLayout.setOnLoadMoreListener(refreshLayout -> refreshLayout.getLayout().postDelayed(() -> {
             if (adapter.getItemCount() >= listSize) {
-                getWyaToast().showShort("数据全部加载完毕");
+                showShort("数据全部加载完毕");
                 smartRefreshLayout.finishLoadMoreWithNoMoreData();//将不会再次触发加载更多事件
             } else {
                 smartRefreshLayout.finishLoadMore();
@@ -79,7 +79,7 @@ public class Fragment1 extends BaseMvpFragment<Fragment1Presenter> implements Fr
         }, 2000));
         
         //RecyclerView条目点击事件
-        adapter.setOnItemClickListener((adapter, view, position) -> getWyaToast().showShort(position + ""));
+        adapter.setOnItemClickListener((adapter, view, position) -> showShort(position + ""));
     }
     
     @Override

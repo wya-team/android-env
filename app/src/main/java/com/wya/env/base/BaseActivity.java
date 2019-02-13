@@ -31,7 +31,7 @@ public abstract class BaseActivity extends BaseToolBarActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutID());
+        setContentView(getLayoutId());
         initToolBar();
         unbinder = ButterKnife.bind(this);
         loadingDialog = new WYALoadingDialog(this, false, false);
@@ -53,10 +53,7 @@ public abstract class BaseActivity extends BaseToolBarActivity {
     }
     
     private void initToolBar() {
-        initWYAActionBarDefault(true, "#ffffff", true, "初始化标题", 18, "#000000",
-                false, "", 14, "#000000", true, R.drawable.icon_backblue,
-                false, "", 14, "#000000", false, false, R.drawable.icon_search, R.drawable.iocn_saoyisao, false, "", 14, "#000000", false);
-        initToolBarBgColor(ColorUtil.hex2Int("#ffffff"), true);
+        setBackgroundColor(ColorUtil.hex2Int("#ffffff"), true);
     }
     
     /**
@@ -70,11 +67,20 @@ public abstract class BaseActivity extends BaseToolBarActivity {
      * @return
      */
     @Override
-    protected abstract int getLayoutID();
+    protected abstract int getLayoutId();
     
-    public WYAToast getWyaToast() {
-        return new WYAToast(this);
+    public void showShort(String msg) {
+        WYAToast.showShort(this, msg);
     }
+
+    public void toastShowLong(String msg) {
+        WYAToast.showLong(this, msg);
+    }
+
+    public void toastShowLong(String msg, int res, int gravity) {
+        WYAToast.showToastWithImage(this, msg, res, gravity);
+    }
+
     
     @Override
     protected void onDestroy() {

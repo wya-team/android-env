@@ -36,7 +36,7 @@ public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFra
      */
     @Override
     public void failedResult(String s) {
-        getWyaToast().showShort(s);
+        showShort(s);
     }
     
     /**

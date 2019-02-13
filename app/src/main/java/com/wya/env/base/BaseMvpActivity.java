@@ -37,7 +37,7 @@ public abstract class BaseMvpActivity<T extends BasePresent> extends BaseActivit
      */
     @Override
     public void failedResult(String s) {
-        getWyaToast().showShort(s);
+        showShort(s);
     }
     
     /**

@@ -31,7 +31,7 @@ public abstract class BaseLazyFragment extends Fragment {
     public boolean isFirst;
     public Unbinder mUnbinder;
     public String token;
-    
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,23 +46,31 @@ public abstract class BaseLazyFragment extends Fragment {
         }
         return rootView;
     }
-    
+
     /**
      * 获取布局文件
      *
      * @return
      */
     protected abstract int getLayoutResource();
-    
+
     /**
      * 初始化view
      */
     protected abstract void initView();
-    
-    public WYAToast getWyaToast() {
-        return new WYAToast(getActivity());
+
+    public void showShort(String msg) {
+        WYAToast.showShort(getActivity(), msg);
     }
-    
+
+    public void toastShowLong(String msg) {
+        WYAToast.showLong(getActivity(), msg);
+    }
+
+    public void toastShowLong(String msg, int res, int gravity) {
+        WYAToast.showToastWithImage(getActivity(), msg, res, gravity);
+    }
+
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
@@ -83,7 +91,7 @@ public abstract class BaseLazyFragment extends Fragment {
             isFragmentVisible = false;
         }
     }
-    
+
     /**
      * 当前fragment可见状态发生变化时会回调该方法
      * 如果当前fragment是第一次加载，等待onCreateView后才会回调该方法，其它情况回调时机跟 {@link #setUserVisibleHint(boolean)}一致
@@ -93,9 +101,9 @@ public abstract class BaseLazyFragment extends Fragment {
      *                  false 可见  -> 不可见
      */
     public void onFragmentVisibleChange(boolean isVisible) {
-    
+
     }
-    
+
     @Override
     public void onDestroy() {
         if (mUnbinder != null) {

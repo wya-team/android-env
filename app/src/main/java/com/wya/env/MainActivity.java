@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity {
     }
     
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return R.layout.main_activity;
     }
     
@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity {
     private void exit() {
         if (!isExit) {
             isExit = true;
-            getWyaToast().showShort("再按一次退出程序");
+            showShort("再按一次退出程序");
             handler.sendEmptyMessageDelayed(0, 2000);
         } else {
             this.finish();

@@ -25,8 +25,8 @@ public class StartUpActivity extends BaseActivity {
     
     @Override
     protected void initView() {
-        initShowToolBar(false);
-        initToolBarBgColor(ColorUtil.hex2Int("#ffffff"), true);
+        showToolBar(false);
+        setBackgroundColor(ColorUtil.hex2Int("#ffffff"), true);
         //是否登录
         boolean isLogin = SaveSharedPreferences.getBoolean(this, CommonValue.IS_LOGIN);
         Observable.just(1).delay(1000, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread())
@@ -42,7 +42,7 @@ public class StartUpActivity extends BaseActivity {
     }
     
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return R.layout.start_up_activity;
     }
 }
