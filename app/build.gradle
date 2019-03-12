@@ -47,8 +47,8 @@ dependencies {
     //刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-7'
 
-    implementation 'wyahelper.helper:debug:0.1.0'
-    implementation 'wyautils.utils:debug:0.1.0'
-    implementation 'wyauikit.uikit:debug:0.1.0'
-    implementation 'wyahardware.hardware:debug:0.1.0'
+    implementation 'com.wya.uikit:uikit:0.1.4'
+    implementation 'com.wya.hardware:hardware:0.1.4'
+    implementation 'com.wya.helper:helper:0.1.4'
+    implementation 'com.wya.utils:utils:0.1.4'
 }
