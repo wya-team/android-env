@@ -7,7 +7,6 @@ import com.wya.env.R;
 import com.wya.env.base.BaseActivity;
 import com.wya.env.common.CommonValue;
 import com.wya.env.util.SaveSharedPreferences;
-import com.wya.utils.utils.ColorUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +25,7 @@ public class StartUpActivity extends BaseActivity {
     @Override
     protected void initView() {
         showToolBar(false);
-        setBackgroundColor(ColorUtil.hex2Int("#ffffff"), true);
+        setBackgroundColor(R.color.white, true);
         //是否登录
         boolean isLogin = SaveSharedPreferences.getBoolean(this, CommonValue.IS_LOGIN);
         Observable.just(1).delay(1000, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread())

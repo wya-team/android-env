@@ -20,7 +20,7 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven { url "https://raw.githubusercontent.com/wya-team/wya-android-kit/develop/aar" }
+        maven { url "https://raw.githubusercontent.com/wya-team/wya-android-kit/develop/aar/release" }
 //        maven { url "file://D:/wya/wya-android-kit/aar" }
     }
 }

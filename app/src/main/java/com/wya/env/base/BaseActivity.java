@@ -10,7 +10,6 @@ import com.wya.env.util.GestureFlingRightHelper;
 import com.wya.uikit.dialog.WYALoadingDialog;
 import com.wya.uikit.toast.WYAToast;
 import com.wya.uikit.toolbar.BaseToolBarActivity;
-import com.wya.utils.utils.ColorUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -53,7 +52,7 @@ public abstract class BaseActivity extends BaseToolBarActivity {
     }
     
     private void initToolBar() {
-        setBackgroundColor(ColorUtil.hex2Int("#ffffff"), true);
+        setBackgroundColor(R.color.white, true);
     }
     
     /**

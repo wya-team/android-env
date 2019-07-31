@@ -11,7 +11,6 @@ import com.wya.env.base.BaseMvpActivity;
 import com.wya.env.bean.login.LoginInfo;
 import com.wya.env.common.CommonValue;
 import com.wya.env.util.SaveSharedPreferences;
-import com.wya.utils.utils.ColorUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -37,7 +36,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresent> implements Logi
     @Override
     protected void initView() {
         showToolBar(false);
-        setBackgroundColor(ColorUtil.hex2Int("#ffffff"), true);
+        setBackgroundColor(R.color.white, true);
         loginPresent.mView = this;
         RxView.clicks(butLogin)
                 .throttleFirst(500, TimeUnit.MILLISECONDS)
