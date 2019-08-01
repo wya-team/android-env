@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.wya.env.R;
-import com.wya.env.base.BaseMvpFragment;
+import com.wya.env.base.fragment.BaseMvpFragment;
 
 import java.util.ArrayList;
 import java.util.List;

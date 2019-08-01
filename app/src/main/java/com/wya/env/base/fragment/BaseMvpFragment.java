@@ -1,9 +1,10 @@
-package com.wya.env.base;
+package com.wya.env.base.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 
 import com.wya.env.MainActivity;
+import com.wya.env.base.presenter.AbstractPresenter;
+import com.wya.env.base.view.BaseView;
 
 /**
  * @date: 2018/7/3 13:48
@@ -12,7 +13,7 @@ import com.wya.env.MainActivity;
  * @describe: BaseMvpFragment
  */
 
-public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFragment implements BaseView {
+public abstract class BaseMvpFragment<T extends AbstractPresenter> extends BaseLazyFragment implements BaseView {
     /**
      * 显示加载对话框
      */
@@ -35,7 +36,7 @@ public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFra
      * @param s
      */
     @Override
-    public void failedResult(String s) {
+    public void errorResult(String s) {
         showShort(s);
     }
     
@@ -43,10 +44,10 @@ public abstract class BaseMvpFragment<T extends BasePresent> extends BaseLazyFra
      * token失效
      */
     @Override
-    public void tokenFaile(Activity activity) {
+    public void tokenFailure() {
         //跳转到登陆界面
-        startActivity(new Intent(activity, MainActivity.class));
-        activity.finish();
+        startActivity(new Intent(getActivity(), MainActivity.class));
+        getActivity().finish();
         
     }
     

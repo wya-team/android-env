@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 
-import com.wya.env.base.BaseActivity;
+import com.wya.env.base.activity.BaseActivity;
 import com.wya.env.module.home.fragment.Fragment1;
 import com.wya.env.module.mine.Fragment2;
 import com.wya.uikit.tabbar.WYATabBar;

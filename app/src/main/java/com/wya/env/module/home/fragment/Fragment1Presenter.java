@@ -1,6 +1,6 @@
 package com.wya.env.module.home.fragment;
 
-import com.wya.env.base.BasePresent;
+import com.wya.env.base.presenter.AbstractPresenter;
 
 /**
  * @date: 2018/7/3 13:56
@@ -9,5 +9,14 @@ import com.wya.env.base.BasePresent;
  * @describe:
  */
 
-public class Fragment1Presenter extends BasePresent<Fragment1View> {
+public class Fragment1Presenter extends AbstractPresenter<Fragment1View> {
+    @Override
+    public void attachView(Fragment1View view) {
+
+    }
+
+    @Override
+    public void detachView() {
+
+    }
 }

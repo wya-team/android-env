@@ -1,4 +1,4 @@
-package com.wya.env.util;
+package com.wya.env.utils;
 
 import android.support.annotation.NonNull;
 

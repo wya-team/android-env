@@ -1,9 +1,10 @@
-package com.wya.env.base;
+package com.wya.env.base.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 
 import com.wya.env.MainActivity;
+import com.wya.env.base.view.BaseView;
+import com.wya.env.base.presenter.AbstractPresenter;
 
 /**
  * @date: 2018/7/3 13:48
@@ -12,7 +13,7 @@ import com.wya.env.MainActivity;
  * @describe: BaseMvpActivity
  */
 
-public abstract class BaseMvpActivity<T extends BasePresent> extends BaseActivity implements BaseView {
+public abstract class BaseMvpActivity<T extends AbstractPresenter> extends BaseActivity implements BaseView {
     
     /**
      * 显示加载对话框
@@ -36,7 +37,7 @@ public abstract class BaseMvpActivity<T extends BasePresent> extends BaseActivit
      * @param s
      */
     @Override
-    public void failedResult(String s) {
+    public void errorResult(String s) {
         showShort(s);
     }
     
@@ -44,9 +45,9 @@ public abstract class BaseMvpActivity<T extends BasePresent> extends BaseActivit
      * token失效
      */
     @Override
-    public void tokenFaile(Activity activity) {
+    public void tokenFailure() {
         //跳转到登陆界面
-        startActivity(new Intent(activity, MainActivity.class));
-        activity.finish();
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

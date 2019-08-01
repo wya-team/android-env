@@ -1,6 +1,6 @@
 package com.wya.env.module.login;
 
-import com.wya.env.base.BaseView;
+import com.wya.env.base.view.BaseView;
 import com.wya.env.bean.login.LoginInfo;
 
 /**
@@ -17,4 +17,5 @@ public interface LoginView extends BaseView {
      * @param loginInfo
      */
     void onLoginResult(LoginInfo loginInfo);
+
 }

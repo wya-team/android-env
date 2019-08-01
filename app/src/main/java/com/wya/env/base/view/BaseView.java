@@ -1,6 +1,4 @@
-package com.wya.env.base;
-
-import android.app.Activity;
+package com.wya.env.base.view;
 
 /**
  * @date: 2018/7/3 13:49
@@ -25,12 +23,12 @@ public interface BaseView {
      *
      * @param s
      */
-    void failedResult(String s);
+    void errorResult(String s);
     
     /**
      * token失效
      *
-     * @param activity
+     * @param view
      */
-    void tokenFaile(Activity activity);
+    void tokenFailure();
 }

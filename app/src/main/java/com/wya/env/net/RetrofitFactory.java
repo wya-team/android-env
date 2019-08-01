@@ -1,13 +1,13 @@
 package com.wya.env.net;
 
+import com.wya.env.common.Constant;
+import com.wya.env.net.api.ApiService;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-
-import com.wya.env.common.Constance;
-
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -31,10 +31,10 @@ public class RetrofitFactory {
         return InstanceHolder.INSTANCE;
     }
     
-    public RetrofitFactory() {
+    private RetrofitFactory() {
         
         retrofit = new Retrofit.Builder()
-                .baseUrl(Constance.BASE_URL)
+                .baseUrl(Constant.BASE_URL)
                 .client(initClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -54,6 +54,10 @@ public class RetrofitFactory {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         return interceptor;
+    }
+
+    public ApiService create() {
+       return create(ApiService.class);
     }
     
     public <T> T create(Class<T> cls) {

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatDelegate;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.wya.env.util.DynamicTimeFormatUtil;
+import com.wya.env.utils.DynamicTimeFormatUtil;
 
 /**
  * @date: 2019/1/3 16:19
@@ -35,5 +35,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        INSTANCE = this;
     }
 }

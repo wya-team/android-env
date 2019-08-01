@@ -4,9 +4,9 @@ import android.content.Intent;
 
 import com.wya.env.MainActivity;
 import com.wya.env.R;
-import com.wya.env.base.BaseActivity;
-import com.wya.env.common.CommonValue;
-import com.wya.env.util.SaveSharedPreferences;
+import com.wya.env.base.activity.BaseActivity;
+import com.wya.env.common.Constant;
+import com.wya.env.utils.SharedPreferencesUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +27,7 @@ public class StartUpActivity extends BaseActivity {
         showToolBar(false);
         setBackgroundColor(R.color.white, true);
         //是否登录
-        boolean isLogin = SaveSharedPreferences.getBoolean(this, CommonValue.IS_LOGIN);
+        boolean isLogin = SharedPreferencesUtil.getInstance().getBoolean( Constant.LOGIN);
         Observable.just(1).delay(1000, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(integer -> {
                     if (isLogin) {

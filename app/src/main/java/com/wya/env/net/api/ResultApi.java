@@ -27,6 +27,6 @@ public class ResultApi {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("user_name", userName);
         hashMap.put("password", pwd);
-        return RetrofitFactory.getInstance().create(Api.class).login(hashMap);
+        return RetrofitFactory.getInstance().create().login(hashMap);
     }
 }

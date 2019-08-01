@@ -1,4 +1,4 @@
-package com.wya.env.base;
+package com.wya.env.base.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 
 import com.wya.env.R;
-import com.wya.env.util.GestureFlingRightHelper;
+import com.wya.env.utils.GestureFlingRightHelper;
 import com.wya.uikit.dialog.WYALoadingDialog;
 import com.wya.uikit.toast.WYAToast;
 import com.wya.uikit.toolbar.BaseToolBarActivity;

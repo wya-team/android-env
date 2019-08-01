@@ -1,4 +1,4 @@
-package com.wya.env.base;
+package com.wya.env.base.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

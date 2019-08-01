@@ -7,14 +7,15 @@ import android.widget.EditText;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.wya.env.MainActivity;
 import com.wya.env.R;
-import com.wya.env.base.BaseMvpActivity;
+import com.wya.env.base.activity.BaseMvpActivity;
 import com.wya.env.bean.login.LoginInfo;
-import com.wya.env.common.CommonValue;
-import com.wya.env.util.SaveSharedPreferences;
+import com.wya.env.common.Constant;
+import com.wya.env.utils.SharedPreferencesUtil;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
+import io.reactivex.disposables.Disposable;
 
 /**
  * @date: 2019/1/3 13:57
@@ -23,7 +24,7 @@ import butterknife.BindView;
  * @describe: 登录
  */
 
-public class LoginActivity extends BaseMvpActivity<LoginPresent> implements LoginView {
+public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements LoginView {
     
     @BindView(R.id.username)
     EditText username;
@@ -31,14 +32,16 @@ public class LoginActivity extends BaseMvpActivity<LoginPresent> implements Logi
     EditText password;
     @BindView(R.id.but_login)
     Button butLogin;
-    private LoginPresent loginPresent = new LoginPresent();
+    private LoginPresenter loginPresent;
     
     @Override
     protected void initView() {
         showToolBar(false);
         setBackgroundColor(R.color.white, true);
-        loginPresent.mView = this;
-        RxView.clicks(butLogin)
+        loginPresent = new LoginPresenter();
+        loginPresent.attachView(this);
+
+        Disposable disposable = RxView.clicks(butLogin)
                 .throttleFirst(500, TimeUnit.MILLISECONDS)
                 .subscribe(Observable -> {
                     String userName = username.getText().toString().trim();
@@ -48,7 +51,8 @@ public class LoginActivity extends BaseMvpActivity<LoginPresent> implements Logi
                         loginPresent.login(userName, pwd);
                     }
                 });
-        
+        loginPresent.addSubscribe(disposable);
+
     }
     
     /**
@@ -65,9 +69,10 @@ public class LoginActivity extends BaseMvpActivity<LoginPresent> implements Logi
         finish();
         
     }
-    
+
     private void saveInfo(LoginInfo loginInfo) {
-        SaveSharedPreferences.save(LoginActivity.this, CommonValue.IS_LOGIN, true);
+
+        SharedPreferencesUtil.getInstance().save(Constant.LOGIN,true);
         
     }
     
@@ -75,5 +80,11 @@ public class LoginActivity extends BaseMvpActivity<LoginPresent> implements Logi
     protected int getLayoutId() {
         return R.layout.login_activity;
     }
-    
+
+    @Override
+    protected void onDestroy() {
+        loginPresent.detachView();
+        super.onDestroy();
+    }
+
 }
