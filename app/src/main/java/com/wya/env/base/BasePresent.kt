@@ -1,4 +1,4 @@
-package com.wya.env.base;
+package com.wya.env.base
 
 /**
  * @date: 2018/7/3 13:49
@@ -7,6 +7,6 @@ package com.wya.env.base;
  * @describe: 基类P层
  */
 
-public class BasePresent<T extends BaseView> {
-    public T mView;
+open class BasePresent<T : BaseView> {
+    var mView: T? = null
 }

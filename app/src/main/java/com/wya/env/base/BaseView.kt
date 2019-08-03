@@ -1,6 +1,6 @@
-package com.wya.env.base;
+package com.wya.env.base
 
-import android.app.Activity;
+import android.app.Activity
 
 /**
  * @date: 2018/7/3 13:49
@@ -9,28 +9,28 @@ import android.app.Activity;
  * @describe: 基类View层
  */
 
-public interface BaseView {
+interface BaseView {
     /**
      * 显示加载框
      */
-    void showLoading();
-    
+    fun showLoading()
+
     /**
      * 隐藏加载框
      */
-    void hideLoading();
-    
+    fun hideLoading()
+
     /**
      * 请求失败
      *
      * @param s
      */
-    void failedResult(String s);
-    
+    fun failedResult(s: String)
+
     /**
      * token失效
      *
      * @param activity
      */
-    void tokenFaile(Activity activity);
+    fun tokenFaile(activity: Activity)
 }

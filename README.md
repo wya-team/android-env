@@ -1,6 +1,8 @@
-# android-env
+# android-en
 
 [![changelog][changelog-image]][changelog-url]
+
+MVVM架构 采用Retrofit+Rxjava Kotlin语言 androidx
 
 ## Demo
 
