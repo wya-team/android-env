@@ -2,7 +2,7 @@ package com.wya.env.module.login
 
 import android.content.Intent
 import com.jakewharton.rxbinding2.view.RxView
-import com.wya.env.MainActivity
+import com.wya.env.module.MainActivity
 import com.wya.env.R
 import com.wya.env.base.BaseMvpActivity
 import com.wya.env.bean.login.LoginInfo

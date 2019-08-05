@@ -1,4 +1,4 @@
-package com.wya.env.net
+package com.wya.env.http
 
 import io.reactivex.Observable
 import io.reactivex.Observer

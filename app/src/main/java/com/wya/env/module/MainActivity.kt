@@ -1,4 +1,4 @@
-package com.wya.env
+package com.wya.env.module
 
 import android.annotation.SuppressLint
 import android.os.Handler
@@ -7,6 +7,7 @@ import android.view.KeyEvent
 import android.view.MenuItem
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.wya.env.R
 import com.wya.env.base.BaseActivity
 import com.wya.env.module.home.fragment.Fragment1
 import com.wya.env.module.mine.Fragment2

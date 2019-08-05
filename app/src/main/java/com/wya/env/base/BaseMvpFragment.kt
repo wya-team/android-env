@@ -3,7 +3,7 @@ package com.wya.env.base
 import android.app.Activity
 import android.content.Intent
 
-import com.wya.env.MainActivity
+import com.wya.env.module.MainActivity
 
 /**
  * @date: 2018/7/3 13:48

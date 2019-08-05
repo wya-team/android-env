@@ -1,7 +1,7 @@
 package com.wya.env.module.login
 
 import android.content.Intent
-import com.wya.env.MainActivity
+import com.wya.env.module.MainActivity
 import com.wya.env.R
 import com.wya.env.base.BaseActivity
 import com.wya.env.common.CommonValue

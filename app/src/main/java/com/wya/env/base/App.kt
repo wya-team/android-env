@@ -1,10 +1,11 @@
-package com.wya.env
+package com.wya.env.base
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
+import com.wya.env.R
 import com.wya.env.util.DynamicTimeFormatUtil
 
 /**
@@ -16,14 +17,7 @@ import com.wya.env.util.DynamicTimeFormatUtil
 
 class App : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
-    }
-
     companion object {
-
-        val instance: App? = null
-
         init {
             //启用矢量图兼容
             AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)

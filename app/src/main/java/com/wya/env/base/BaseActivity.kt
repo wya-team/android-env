@@ -48,14 +48,4 @@ abstract class BaseActivity : BaseToolBarActivity() {
         WYAToast.showShort(this, msg)
     }
 
-    fun toastShowLong(msg: String) {
-        WYAToast.showLong(this, msg)
-    }
-
-    fun toastShowLong(msg: String, res: Int, gravity: Int) {
-        WYAToast.showToastWithImage(this, msg, res, gravity)
-    }
-
-
-
 }
