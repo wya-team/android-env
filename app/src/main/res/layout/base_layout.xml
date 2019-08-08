@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
+        <import type="android.view.View" />
+
+        <import type="com.wya.env.base.viewmodel.BaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="BaseViewModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -15,24 +22,48 @@
             android:id="@+id/baseToolbar"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:visibility="@{safeUnbox(viewModel.showTitle) ? View.VISIBLE : View.GONE}"
+            app:contentInsetStart="0dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/red">
+                android:gravity="center_vertical">
 
+                <LinearLayout
+                    android:id="@+id/title_back"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:onClick="@{viewModel::onBackClick}">
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_back" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/baseTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@{viewModel.titleText}"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+
+            </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
         <FrameLayout
             android:id="@+id/contentLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </FrameLayout>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </layout>

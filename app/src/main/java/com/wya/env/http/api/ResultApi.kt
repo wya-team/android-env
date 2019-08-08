@@ -25,6 +25,6 @@ class ResultApi {
         val hashMap = HashMap<String, String>()
         hashMap["user_name"] = userName
         hashMap["password"] = pwd
-        return RetrofitFactory.get().create(Api::class.java).login(hashMap)
+        return RetrofitFactory.get().create(ApiService::class.java).login(hashMap)
     }
 }

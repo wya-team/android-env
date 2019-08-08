@@ -1,4 +1,4 @@
-package com.wya.env.base
+package com.wya.env.uiview
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
@@ -15,7 +15,7 @@ import com.wya.env.util.DynamicTimeFormatUtil
  * @describe:
  */
 
-class App : Application() {
+class App  : Application() {
 
     companion object {
         init {
@@ -27,5 +27,18 @@ class App : Application() {
                 ClassicsHeader(context).setTimeFormat(DynamicTimeFormatUtil("更新于 %s"))
             }
         }
+
+        private var instance: App? = null
+
+        @Synchronized
+        @JvmStatic
+        fun getInstance(): App {
+            return instance!!
+        }
+
+    }
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
     }
 }

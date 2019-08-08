@@ -1,6 +1,7 @@
 package com.wya.env.http
 
-import com.wya.env.common.Constance
+import com.wya.env.common.Constant
+import com.wya.env.http.api.ApiService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,7 +25,7 @@ class RetrofitFactory private constructor(){
     init {
 
         retrofit = Retrofit.Builder()
-                .baseUrl(Constance.BASE_URL)
+                .baseUrl(Constant.BASE_URL)
                 .client(initClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -47,6 +48,10 @@ class RetrofitFactory private constructor(){
 
     fun <T> create(cls: Class<T>): T {
         return retrofit.create(cls)
+    }
+
+    fun create(): ApiService {
+        return create(ApiService::class.java)
     }
 
     companion object {
