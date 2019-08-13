@@ -1,7 +1,9 @@
 package com.wya.env.uiview
 
 import android.app.Application
+import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.multidex.MultiDex
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.header.ClassicsHeader
@@ -40,5 +42,10 @@ class App  : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(this)
     }
 }

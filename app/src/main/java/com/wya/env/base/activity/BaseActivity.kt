@@ -1,14 +1,15 @@
 package com.wya.env.base.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.wya.env.R
 import com.wya.env.base.viewmodel.BaseViewModel
+import com.wya.env.common.Constant
 import com.wya.env.databinding.BaseLayoutBinding
 import com.wya.env.rxbus.RxBus
 import com.wya.env.rxbus.RxManageSubscription
@@ -33,6 +34,8 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
     private var dialog: WYALoadingDialog? = null
     private var dialogShowDisposable:Disposable?=null
     private var dialogDismissDisposable:Disposable?=null
+    private var mIntent = Intent()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,20 +43,22 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
         setContentView(R.layout.base_layout)
         initToolbar()
         initDataBinding()
-        initView()
         initObserveEvent()
+        initView()
+
     }
+
 
     private fun initDataBinding() {
         //初始化base binding和ViewModel
         baseBinding = DataBindingUtil.setContentView(this, R.layout.base_layout)
-        baseViewModel = ViewModelProviders.of(this, ViewModelProvider.AndroidViewModelFactory(application))
-                .get(BaseViewModel::class.java)
+        baseViewModel = ViewModelProvider.AndroidViewModelFactory
+                .getInstance(application).create(BaseViewModel::class.java)
         baseBinding.viewModel = baseViewModel
         baseBinding.lifecycleOwner = this
 
         //初始化实际Activity的布局中的binding和ViewModel
-        var group = layoutInflater.inflate(getLayoutId(), null)
+        val group = layoutInflater.inflate(getLayoutId(), null)
         contentLayout.addView(group)
         viewModel = initViewModel()
         viewModel.baseViewModel = baseViewModel
@@ -81,21 +86,32 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
         baseViewModel.backIconClick.observe(this, Observer {
             finish()
         })
+        //startActivity
+        baseViewModel.activityInfo.observe(this, Observer {
+            var activity = it[Constant.ACTIVITY_CLAZZ]
+            var bundle = it[Constant.ACTIVITY_BUNDLE]
+            mIntent.setClass(this, activity as Class<*>)
+            mIntent.putExtras(bundle as Bundle)
+            startActivity(mIntent)
+        })
 
-        dialogShowDisposable=RxBus.getInstance().toObservable(ShowLoadingEvent::class.java)
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribe {
-                    showDialog()
+        dialogShowDisposable = RxBus.getInstance().toObservable(ShowLoadingEvent::class.java)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    if (it.clazz == javaClass) {
+                        showDialog()
+                    }
                 }
 
 
         dialogDismissDisposable=RxBus.getInstance().toObservable(DismissLoadingEvent::class.java)
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribe {
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
                     dialog?.dismiss()
                 }
         RxManageSubscription.add(dialogShowDisposable)
         RxManageSubscription.add(dialogDismissDisposable)
+
     }
 
     private fun showDialog() {
@@ -136,8 +152,10 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
 
     override fun onDestroy() {
         super.onDestroy()
+        RxManageSubscription.remove(dialogShowDisposable)
         RxManageSubscription.remove(dialogDismissDisposable)
-        RxManageSubscription.remove(dialogDismissDisposable)
+        dialog?.cancel()
+        dialog = null
     }
 
 }

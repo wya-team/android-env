@@ -5,4 +5,4 @@ package com.wya.env.rxbus.event
  *     @time   : 2019/08/08
  *     @describe :
  */
-class ShowLoadingEvent
+class ShowLoadingEvent(var clazz: Class<*>)

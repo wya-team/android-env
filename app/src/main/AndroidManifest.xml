@@ -16,14 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".uiview.login.LoginActivity">
+        <activity android:name=".uiview.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".uiview.login.LoginActivity">
+            <!--<intent-filter>-->
+                <!--<action android:clazz="android.intent.action.MAIN" />-->
 
+                <!--<category android:clazz="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
     </application>
 
 </manifest>

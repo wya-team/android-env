@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap
 /**
  * 只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者
  */
-class RxBus {
+class RxBus private constructor() {
     private val mBus: Subject<Any>
 
     private val mStickyEventMap: MutableMap<Class<*>, Any>
@@ -18,7 +18,6 @@ class RxBus {
         mBus = PublishSubject.create<Any>().toSerialized()
         mStickyEventMap = ConcurrentHashMap()
     }
-
     /**
      * 发送事件
      */
@@ -102,19 +101,29 @@ class RxBus {
     }
 
     companion object {
-        @Volatile
         private var mDefaultInstance: RxBus? = null
-
-        @JvmStatic
-        fun getInstance() :RxBus{
-            if (mDefaultInstance == null) {
-                synchronized(RxBus::class.java) {
-                    if (mDefaultInstance == null) {
-                        mDefaultInstance = RxBus()
-                    }
+            get() {
+                if (field == null) {
+                    field = RxBus()
                 }
+                return field
             }
+
+        @JvmSynthetic
+        fun getInstance(): RxBus {
             return mDefaultInstance!!
         }
+
+//        @JvmStatic
+//        fun getInstance() :RxBus{
+//            if (mDefaultInstance == null) {
+//                synchronized(RxBus::class.java) {
+//                    if (mDefaultInstance == null) {
+//                        mDefaultInstance = RxBus()
+//                    }
+//                }
+//            }
+//            return mDefaultInstance!!
+//        }
     }
 }

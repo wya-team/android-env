@@ -1,7 +1,7 @@
 package com.wya.env.http.api
 
 import com.wya.env.bean.BaseResult
-import com.wya.env.bean.login.LoginInfo
+import com.wya.env.bean.LoginInfo
 import com.wya.env.http.RetrofitFactory
 import io.reactivex.Observable
 import java.util.*

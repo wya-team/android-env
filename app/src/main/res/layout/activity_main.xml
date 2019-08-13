@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wya.env.uiview.main.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".uiview.main.MainActivity"
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/animal_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            bind:adapter="@{viewModel.baseAdapter}">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+</layout>

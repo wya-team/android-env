@@ -5,7 +5,7 @@ import android.text.TextUtils
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import com.wya.env.base.viewmodel.BaseViewModel
-import com.wya.env.bean.login.LoginInfo
+import com.wya.env.bean.LoginInfo
 import com.wya.env.common.Constant
 import com.wya.env.util.SharedPreferencesUtil
 import com.wya.env.util.ToastUtils
@@ -31,7 +31,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
             ToastUtils.show("请输入密码")
             return
         }
-        loginInfo = LoginRepository.login(adminInput.value!!, adminPwd.value!!)
+        loginInfo.value=LoginRepository.login(adminInput.value!!, adminPwd.value!!)
     }
 
 
@@ -42,6 +42,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
 
     fun saveLoginInfo(){
 //        val login = loginInfo.value
+
         SharedPreferencesUtil.getInstance().save(Constant.IS_LOGIN,true)
     }
 

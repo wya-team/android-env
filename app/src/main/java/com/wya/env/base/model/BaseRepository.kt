@@ -2,6 +2,7 @@ package com.wya.env.base.model
 
 import com.wya.env.rxbus.RxBus
 import com.wya.env.rxbus.event.ShowLoadingEvent
+import com.wya.env.uiview.login.LoginActivity
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
@@ -22,7 +23,7 @@ open class BaseRepository : IModel {
     }
 
     fun showLoading() {
-        RxBus.getInstance().post(ShowLoadingEvent())
+        RxBus.getInstance().post(ShowLoadingEvent(LoginActivity::class.java))
     }
 
 

@@ -1,9 +1,8 @@
 package com.wya.env.uiview.login
 
-import androidx.lifecycle.MutableLiveData
 import com.wya.env.base.model.BaseRepository
 import com.wya.env.bean.BaseResult
-import com.wya.env.bean.login.LoginInfo
+import com.wya.env.bean.LoginInfo
 import com.wya.env.http.BaseObserver
 import com.wya.env.http.BaseRequest
 import com.wya.env.http.api.ResultApi
@@ -24,14 +23,14 @@ object LoginRepository : BaseRepository() {
      * @param pwd String
      * @return LoginInfo?
      */
-    fun login(name: String, pwd: String): MutableLiveData<LoginInfo> {
+    fun login(name: String, pwd: String): LoginInfo? {
         showLoading()
-        val tempLoginInfo = MutableLiveData<LoginInfo>()
+        var tempLoginInfo: LoginInfo?=null
         BaseRequest.request(resultApi.loginApi(name, pwd), object : BaseObserver<BaseResult<LoginInfo>>() {
             override fun onNext(t: BaseResult<LoginInfo>) {
                 super.onNext(t)
                 if (ResultStatusUtil.handleResult(t)) {
-                    tempLoginInfo.value = t.data
+                    tempLoginInfo= t.data
                 }
             }
         })

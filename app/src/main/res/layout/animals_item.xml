@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="dataBean"
+            type="com.wya.env.bean.ListBean" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/animal_image"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:urlSrc="@{dataBean.icon}"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/animal_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@{dataBean.name}"/>
+        <Button
+            android:id="@+id/animal_btn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+</layout>

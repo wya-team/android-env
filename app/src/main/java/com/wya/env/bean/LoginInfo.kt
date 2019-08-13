@@ -1,4 +1,4 @@
-package com.wya.env.bean.login
+package com.wya.env.bean
 
 /**
  * @date: 2018/5/31 13:50

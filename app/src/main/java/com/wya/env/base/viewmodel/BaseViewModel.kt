@@ -15,8 +15,7 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
     var titleText = MutableLiveData("默认标题")
     var showTitle = MutableLiveData(true)
     var backIconClick = MutableLiveData<View>()
-    val showDialog = MutableLiveData<Void>()
-    val dismissDialog = MutableLiveData<Void>()
+    var activityInfo=MutableLiveData<Map<String,Any>>()
 
 
     fun onBackClick(view: View) {

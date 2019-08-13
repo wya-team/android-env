@@ -12,6 +12,7 @@ object Constant {
     const val SP_NAME = "demo_sp"
     const val TEMP_KEY = "sp_temp"
     const val IS_LOGIN = "is_login"
-
+    const val ACTIVITY_CLAZZ = "activityClazz"
+    const val ACTIVITY_BUNDLE = "activityBundle"
 
 }

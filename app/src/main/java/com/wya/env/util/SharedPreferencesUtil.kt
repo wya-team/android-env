@@ -82,35 +82,35 @@ class SharedPreferencesUtil private constructor() {
      * @param key 键
      * @return 返回值
      */
-    fun getString(key: String): String? {
-        return mSharedPreferences.getString(key, "")
+    fun getString(key: String): String {
+        return getString(key, "")
     }
 
-    fun getString(key: String, defValue: String): String? {
-        return mSharedPreferences.getString(key, defValue)
+    fun getString(key: String, defValue: String): String {
+        return mSharedPreferences.getString(key, defValue)!!
     }
 
-    fun getInt(key: String): Int? {
-        return mSharedPreferences.getInt(key, 0)
+    fun getInt(key: String): Int {
+        return getInt(key, 0)
     }
 
-    fun getInt(key: String, defValue: Int): Int? {
+    fun getInt(key: String, defValue: Int): Int {
         return mSharedPreferences.getInt(key, defValue)
     }
 
-    fun getFloat(key: String): Float? {
-        return mSharedPreferences.getFloat(key, 0f)
+    fun getFloat(key: String): Float {
+        return getFloat(key, 0f)
     }
 
-    fun getFloat(key: String, defValue: Int): Float? {
-        return mSharedPreferences.getFloat(key, defValue.toFloat())
+    fun getFloat(key: String, defValue: Float): Float{
+        return mSharedPreferences.getFloat(key, defValue)
     }
 
-    fun getBoolean(key: String): Boolean? {
-        return mSharedPreferences.getBoolean(key, false)
+    fun getBoolean(key: String): Boolean {
+        return getBoolean(key, false)
     }
 
-    fun getBoolean(key: String, defValue: Boolean): Boolean? {
+    fun getBoolean(key: String, defValue: Boolean): Boolean {
         return mSharedPreferences.getBoolean(key, defValue)
     }
 

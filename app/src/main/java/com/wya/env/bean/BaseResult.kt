@@ -7,8 +7,7 @@ package com.wya.env.bean
  * @describe:
  */
 
-class BaseResult<T> {
-    var status: Int = 0
-    var msg: String? = null
-    var data: T? = null
-}
+data class BaseResult<T>(val status: Int,
+                         val msg: String,
+                         @JvmSuppressWildcards val  data: T)
+

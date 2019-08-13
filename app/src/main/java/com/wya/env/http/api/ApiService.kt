@@ -1,7 +1,7 @@
 package com.wya.env.http.api
 
 import com.wya.env.bean.BaseResult
-import com.wya.env.bean.login.LoginInfo
+import com.wya.env.bean.LoginInfo
 import io.reactivex.Observable
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded

@@ -1,6 +1,6 @@
 package com.wya.env.uiview.login
 
-import android.util.Log
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -9,6 +9,7 @@ import com.wya.env.R
 import com.wya.env.base.activity.BaseActivity
 import com.wya.env.common.Constant
 import com.wya.env.databinding.ActivityLoginBinding
+import com.wya.env.uiview.main.MainActivity
 import com.wya.env.util.SharedPreferencesUtil
 
 
@@ -33,7 +34,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
     override fun initView() {
         viewModel.initTitle()
-        Log.e("test",SharedPreferencesUtil.getInstance().getBoolean(Constant.IS_LOGIN).toString())
+        if (SharedPreferencesUtil.getInstance().getBoolean(Constant.IS_LOGIN)) {
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
     }
 
 
@@ -41,6 +45,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         super.initObserveEvent()
         viewModel.loginInfo.observe(this, Observer {
             viewModel.saveLoginInfo()
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         })
     }
 
