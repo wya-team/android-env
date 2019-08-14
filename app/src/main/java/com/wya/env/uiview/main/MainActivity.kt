@@ -1,6 +1,5 @@
 package com.wya.env.uiview.main
 
-import androidx.lifecycle.ViewModelProvider
 import com.wya.env.BR
 import com.wya.env.R
 import com.wya.env.base.activity.BaseActivity
@@ -14,10 +13,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
      * @return VM
      */
     override fun initViewModel(): MainViewModel {
-        return ViewModelProvider
-                .AndroidViewModelFactory
-                .getInstance(application)
-                .create(MainViewModel::class.java)
+        return MainViewModel(application)
     }
 
     /**

@@ -2,8 +2,6 @@ package com.wya.env.uiview.login
 
 import android.content.Intent
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.wya.env.BR
 import com.wya.env.R
 import com.wya.env.base.activity.BaseActivity
@@ -24,8 +22,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
 
     override fun initViewModel(): LoginViewModel {
-        return ViewModelProviders.of(this, ViewModelProvider.AndroidViewModelFactory(application))
-                .get(LoginViewModel::class.java)
+        return LoginViewModel(application, LoginRepository(javaClass))
     }
 
     override fun getLayoutId(): Int {
@@ -44,11 +41,14 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     override fun initObserveEvent() {
         super.initObserveEvent()
         viewModel.loginInfo.observe(this, Observer {
-            viewModel.saveLoginInfo()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            if (it!=null) {
+                viewModel.saveLoginInfo()
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
         })
     }
+
 
 
 }

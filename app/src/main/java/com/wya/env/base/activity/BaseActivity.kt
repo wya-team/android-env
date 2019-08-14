@@ -2,10 +2,10 @@ package com.wya.env.base.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.wya.env.R
 import com.wya.env.base.viewmodel.BaseViewModel
@@ -45,15 +45,14 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
         initDataBinding()
         initObserveEvent()
         initView()
-
+        Log.e("Test", "create " + javaClass.name)
     }
 
 
     private fun initDataBinding() {
         //初始化base binding和ViewModel
         baseBinding = DataBindingUtil.setContentView(this, R.layout.base_layout)
-        baseViewModel = ViewModelProvider.AndroidViewModelFactory
-                .getInstance(application).create(BaseViewModel::class.java)
+        baseViewModel = BaseViewModel(application)
         baseBinding.viewModel = baseViewModel
         baseBinding.lifecycleOwner = this
 
@@ -107,7 +106,9 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
         dialogDismissDisposable=RxBus.getInstance().toObservable(DismissLoadingEvent::class.java)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    dialog?.dismiss()
+                    if (it.clazz == javaClass) {
+                        dialog?.dismiss()
+                    }
                 }
         RxManageSubscription.add(dialogShowDisposable)
         RxManageSubscription.add(dialogDismissDisposable)
@@ -154,8 +155,10 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
         super.onDestroy()
         RxManageSubscription.remove(dialogShowDisposable)
         RxManageSubscription.remove(dialogDismissDisposable)
-        dialog?.cancel()
-        dialog = null
+//        dialog?.cancel()
+//        dialog = null
+        Log.e("Test", "destroy " + javaClass.name)
+
     }
 
 }

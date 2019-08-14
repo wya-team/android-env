@@ -49,7 +49,7 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         val runnable = Runnable {
             run {
                 Thread.sleep(2000)
-                RxBus.getInstance().post(DismissLoadingEvent())
+                RxBus.getInstance().post(DismissLoadingEvent(MainActivity::class.java))
                 animals.postValue(fromJson.data)
             }
         }
