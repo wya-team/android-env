@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.wya.env.R
 import com.wya.env.base.viewmodel.BaseViewModel
@@ -52,7 +53,7 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
     private fun initDataBinding() {
         //初始化base binding和ViewModel
         baseBinding = DataBindingUtil.setContentView(this, R.layout.base_layout)
-        baseViewModel = BaseViewModel(application)
+        baseViewModel = ViewModelProvider(this).get(BaseViewModel::class.java)
         baseBinding.viewModel = baseViewModel
         baseBinding.lifecycleOwner = this
 

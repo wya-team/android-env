@@ -26,10 +26,4 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
         titleText.value = title
     }
 
-
-    override fun onCleared() {
-        super.onCleared()
-    }
-
-
 }
