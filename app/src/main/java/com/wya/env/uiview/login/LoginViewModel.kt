@@ -49,7 +49,7 @@ class LoginViewModel(application: Application, baseRepository: BaseRepository) :
 
     override fun onCleared() {
         super.onCleared()
-        Log.e("test", "loginViewModel clear(")
+        Log.e("test", "loginViewModel clear")
         loginRepository.clear()
     }
 

@@ -2,7 +2,6 @@ package com.wya.env.base.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
@@ -46,7 +45,6 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
         initDataBinding()
         initObserveEvent()
         initView()
-        Log.e("Test", "create " + javaClass.name)
     }
 
 
@@ -158,7 +156,6 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
         RxManageSubscription.remove(dialogDismissDisposable)
 //        dialog?.cancel()
 //        dialog = null
-        Log.e("Test", "destroy " + javaClass.name)
 
     }
 

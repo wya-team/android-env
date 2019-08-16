@@ -2,6 +2,7 @@ package com.wya.env.uiview.login
 
 import android.content.Intent
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.wya.env.BR
 import com.wya.env.R
 import com.wya.env.base.activity.BaseActivity
@@ -23,8 +24,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
 
     override fun initViewModel(): LoginViewModel {
-        return BaseViewModelFactory.getInstance(application, LoginRepository(javaClass))
-                .create(LoginViewModel::class.java)
+        return ViewModelProvider(this,BaseViewModelFactory.getInstance(application, LoginRepository(javaClass)))
+                .get(LoginViewModel::class.java)
     }
 
     override fun getLayoutId(): Int {

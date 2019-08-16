@@ -16,8 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".uiview.main.MainActivity">
-        </activity>
+        <activity android:name=".uiview.test.Main2Activity"></activity>
+        <activity android:name=".uiview.main.MainActivity" />
         <activity android:name=".uiview.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -83,5 +83,9 @@ class MainViewModel(application: Application) : BaseViewModel(application) {
         baseAdapter.value?.notifyDataSetChanged()
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        Log.e("test","mainViewModel clear")
+    }
 
 }
