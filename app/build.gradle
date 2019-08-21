@@ -68,5 +68,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha03'
     kapt 'androidx.lifecycle:lifecycle-compiler:2.2.0-alpha03'
 
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-2'
+
 
 }

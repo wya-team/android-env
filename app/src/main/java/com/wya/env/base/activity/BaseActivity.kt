@@ -56,8 +56,6 @@ abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : RxAppComp
         baseBinding.lifecycleOwner = this
 
         //初始化实际Activity的布局中的binding和ViewModel
-        val group = layoutInflater.inflate(getLayoutId(), null)
-        contentLayout.addView(group)
         viewModel = initViewModel()
         viewModel.baseViewModel = baseViewModel
         binding = DataBindingUtil.inflate(layoutInflater, getLayoutId(), contentLayout, true)
