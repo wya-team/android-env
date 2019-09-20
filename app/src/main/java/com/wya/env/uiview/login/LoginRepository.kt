@@ -15,7 +15,7 @@ import io.reactivex.disposables.Disposable
  *     @time   : 2019/08/07
  *     @describe :
  */
-class LoginRepository(private val clazz: Class<*>) : BaseRepository(clazz) {
+open class LoginRepository(private val clazz: Class<*>) : BaseRepository(clazz) {
     private var resultApi = ResultApi()
     var data =MutableLiveData<LoginInfo>()
 

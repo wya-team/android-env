@@ -69,6 +69,6 @@ dependencies {
     kapt 'androidx.lifecycle:lifecycle-compiler:2.2.0-alpha03'
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-2'
-
+    testImplementation "org.mockito:mockito-core:3.0.0"
 
 }
